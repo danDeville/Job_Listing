@@ -18,8 +18,11 @@ const CardWrapper = styled.aside`
 
   @media (min-width: 768px) {
     flex-direction: row;
-    padding: 20px 40px;
     height: 110px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 20px 40px;
   }
 `
 const ContainerInfo = styled.section`
@@ -35,11 +38,15 @@ const ContainerInfo = styled.section`
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 
   @media (min-width: 768px) {
-    width: 50%;
+    width: 60%;
     height: auto;
     align-items: center;
     margin-top: 0;
     border-bottom: none;
+  }
+
+  @media (min-width: 1024px) {
+    width: 50%;
   }
 `
 const LogoCompany = styled.img`
@@ -117,10 +124,15 @@ const ContainerChips = styled.section`
   margin-top: 16px;
 
   @media (min-width: 768px) {
-    width: 50%;
+    width: 40%;
     align-items: center;
     justify-content: flex-end;
     margin-top: 0;
+  }
+
+
+  @media (min-width: 1024px) {
+    width: 50%;
   }
 `
 

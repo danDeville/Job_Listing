@@ -31,7 +31,6 @@ const ContainerCards = styled.div`
   overflow-x: hidden;
   box-sizing: border-box;
 
-
   @media (min-width: 768px) {
     grid-template-columns: 1fr;
     grid-gap: 24px;
