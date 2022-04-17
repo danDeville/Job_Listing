@@ -138,7 +138,7 @@ const ContainerChips = styled.section`
 
 const Card = ({ image, name, company, time, contract, office, children}) => {
   return (
-    <CardWrapper>
+    <CardWrapper className="animate__animated animate__fadeInDownBig">
       <ContainerInfo>
         <LogoCompany src={image} alt={name}/>
         <ContainerText>
