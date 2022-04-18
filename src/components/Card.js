@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 // Styles
 import styled from "styled-components"
 
+
 const CardWrapper = styled.aside`
   position: relative;
   display: flex;
@@ -81,6 +82,14 @@ const ContainerCompanyInfo = styled.div`
   justify-content: space-between;
 `
 
+const ContainerSubtitle = styled.div`
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+`
+
 const TextSubtitle = styled.p`
   font-size: 16px;
   margin: 0px;
@@ -146,15 +155,20 @@ const ContainerChips = styled.section`
   }
 `
 
-const Card = ({ image, name, company, time, contract, office, children}) => {
+const Card = ({ image, name, company, time, contract, office, children, ChipFeature}) => {
   return (
     <CardWrapper className="animate__animated animate__fadeInDownBig">
       <ContainerInfo>
         <LogoCompany src={image} alt={name}/>
         <ContainerText>
+        <ContainerSubtitle>
           <TextSubtitle>
             {company}
           </TextSubtitle>
+
+            {ChipFeature}
+        </ContainerSubtitle>
+
           <TextTitle>
             {name}
           </TextTitle>

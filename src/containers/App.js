@@ -6,6 +6,7 @@ import Header from '../components/Header'
 import NavFilter from '../components/NavFilter'
 import Card from '../components/Card'
 import Chip from '../components/Chip'
+import ChipFeature from '../components/ChipFeature'
 
 // Styles
 import styled from 'styled-components'
@@ -53,6 +54,12 @@ const App = () =>{
           time="1d ago"
           contract="Full Time"
           office="Remote"
+          ChipFeature= {
+            <>
+              <ChipFeature nameChip="New!"/>
+              <ChipFeature nameChip="Featured" />
+            </>
+          }
         >
           <Chip name="Frontend"/>
           <Chip name="Senior"/>
@@ -68,6 +75,12 @@ const App = () =>{
           time="1d ago"
           contract="Part Time"
           office="Remote"
+          ChipFeature= {
+            <>
+              <ChipFeature nameChip="New!"/>
+              <ChipFeature nameChip="Featured"/>
+            </>
+          }
         >
           <Chip name="Fullstack"/>
           <Chip name="Midweight"/>
@@ -82,6 +95,11 @@ const App = () =>{
           time="2d ago"
           contract="Part Time"
           office="USA Only"
+          ChipFeature= {
+            <>
+              <ChipFeature nameChip="New!"/>
+            </>
+          }
         >
           <Chip name="Frontend"/>
           <Chip name="Junior"/>
