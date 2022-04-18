@@ -1,4 +1,7 @@
+// Base
 import React from "react"
+
+// Styles
 import styled from "styled-components"
 
 // Componente Chip
