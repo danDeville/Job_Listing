@@ -15,9 +15,16 @@ const ChipWrapper = styled.div`
   border-radius: 8px;
   margin: 8px;
   background-color: hsl(180, 31%, 95%);
+  cursor: pointer;
 
   @media (min-width: 768px) {
     margin: 0 8px;
+  }
+
+  &:hover {
+    background-color: hsl(180, 29%, 50%);
+    color: #fff;
+    transition: all 0.15s ease-in-out;
   }
 `
 
@@ -26,6 +33,11 @@ const ChipTitle = styled.h3`
   font-size: 18px;
   color: hsl(180, 29%, 50%);
   text-align: center;
+
+  &:hover {
+    color: #fff;
+    transition: all 0.15s ease-in-out;
+  }
 `
 
 const Chip = ({ name }) => {

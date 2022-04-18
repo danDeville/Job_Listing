@@ -24,6 +24,11 @@ const CardWrapper = styled.aside`
   @media (min-width: 1024px) {
     padding: 20px 40px;
   }
+
+  &:hover {
+    border-left: 4px solid hsl(180, 29%, 50%);
+    transition: all 0.25s ease-in-out;
+  }
 `
 const ContainerInfo = styled.section`
   position: relative;
@@ -87,9 +92,15 @@ const TextTitle = styled.h2`
   font-size: 20px;
   margin: 16px 0;
   color: hsl(180, 14%, 20%);
+  cursor: pointer;
 
   @media (min-width: 768px) {
     margin: 12px 0;
+  }
+
+  &:hover {
+    color: hsl(180, 29%, 50%);
+    transition: all 0.15s ease-in-out;
   }
 `
 
@@ -129,7 +140,6 @@ const ContainerChips = styled.section`
     justify-content: flex-end;
     margin-top: 0;
   }
-
 
   @media (min-width: 1024px) {
     width: 50%;
