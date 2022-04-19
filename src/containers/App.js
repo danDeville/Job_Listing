@@ -1,5 +1,5 @@
 //Base
-import React from 'react'
+import React,{useEffect, useState}from 'react'
 
 // Components
 import Header from '../components/Header'
@@ -10,6 +10,7 @@ import ChipFeature from '../components/ChipFeature'
 
 // Styles
 import styled from 'styled-components'
+
 
 const AppWrapper = styled.div`
   position: relative;
@@ -40,177 +41,60 @@ const ContainerCards = styled.div`
     margin-top: 50px;
   }
 `
-
 const App = () =>{
+  const API = 'https://jobs-data-api.herokuapp.com/jobs'
+  const [jobs, setJobs] = useState()
+  const fetchData = async () => {
+    const response = await fetch(API)
+    console.log(response.status)
+    const data = await response.json()
+    setJobs(data)
+    console.log(data)
+    // return data
+  }
+  useEffect(() => {
+    fetchData()
+  }, [])
+
   return (
     <AppWrapper>
       <Header/>
       <NavFilter/>
       <ContainerCards>
-        <Card
-          image="https://res.cloudinary.com/dz8on44po/image/upload/v1650071603/R1S2/photosnap_gnlw2u.svg"
-          name="Senior Frontend Developer"
-          company="Photosnap"
-          time="1d ago"
-          contract="Full Time"
-          office="Remote"
-          ChipFeature= {
-            <>
-              <ChipFeature nameChip="New!"/>
-              <ChipFeature nameChip="Featured" />
-            </>
-          }
-        >
-          <Chip name="Frontend"/>
-          <Chip name="Senior"/>
-          <Chip name="HTML"/>
-          <Chip name="CSS"/>
-          <Chip name="JavaScript"/>
-        </Card>
-
-        <Card
-          image="https://res.cloudinary.com/dz8on44po/image/upload/v1650230754/R1S2/manage_riflv1.svg"
-          name="Senior Developer"
-          company="Manage"
-          time="1d ago"
-          contract="Part Time"
-          office="Remote"
-          ChipFeature= {
-            <>
-              <ChipFeature nameChip="New!"/>
-              <ChipFeature nameChip="Featured"/>
-            </>
-          }
-        >
-          <Chip name="Fullstack"/>
-          <Chip name="Midweight"/>
-          <Chip name="Python"/>
-          <Chip name="React"/>
-        </Card>
-
-        <Card
-          image="https://res.cloudinary.com/dz8on44po/image/upload/v1650230753/R1S2/account_rh1hvb.svg"
-          name="Junior Frontend Developer"
-          company="Manage"
-          time="2d ago"
-          contract="Part Time"
-          office="USA Only"
-          ChipFeature= {
-            <>
-              <ChipFeature nameChip="New!"/>
-            </>
-          }
-        >
-          <Chip name="Frontend"/>
-          <Chip name="Junior"/>
-          <Chip name="React"/>
-          <Chip name="Sass"/>
-          <Chip name="JavaScript"/>
-        </Card>
-
-
-        <Card
-          image="https://res.cloudinary.com/dz8on44po/image/upload/v1650230766/R1S2/myhome_qvmk1m.svg"
-          name="Junior Frontend Developer"
-          company="MyHome"
-          time="5d ago"
-          contract="Contract"
-          office="USA Only"
-        >
-          <Chip name="Frontend"/>
-          <Chip name="Junior"/>
-          <Chip name="CSS"/>
-          <Chip name="JavaScript"/>
-        </Card>
-
-        <Card
-          image="https://res.cloudinary.com/dz8on44po/image/upload/v1650230759/R1S2/loop-studios_dckrlt.svg"
-          name="Software Engineer"
-          company="Loop Studios"
-          time="1w ago"
-          contract="Full Time"
-          office="Worldwide"
-        >
-          <Chip name="Fullstack"/>
-          <Chip name="Midweight"/>
-          <Chip name="JavaScript"/>
-          <Chip name="Sass"/>
-          <Chip name="Ruby"/>
-        </Card>
-
-        <Card
-          image="https://res.cloudinary.com/dz8on44po/image/upload/v1650232474/R1S2/faceit_1_jmfrv9.svg"
-          name="Junior Backend Developer"
-          company="FaceIt"
-          time="2w ago"
-          contract="Full Time"
-          office="UK Only"
-        >
-          <Chip name="Backend"/>
-          <Chip name="Junior"/>
-          <Chip name="Ruby"/>
-          <Chip name="RoR"/>
-        </Card>
-
-        <Card
-          image="https://res.cloudinary.com/dz8on44po/image/upload/v1650232842/R1S2/shortly_2_t8lqcm.svg"
-          name="Junior Developer"
-          company="Shortly"
-          time="2w ago"
-          contract="Full Time"
-          office="Worldwide"
-        >
-          <Chip name="Frontend"/>
-          <Chip name="Junior"/>
-          <Chip name="HTML"/>
-          <Chip name="Sass"/>
-          <Chip name="JavaScript"/>
-        </Card>
-
-        <Card
-          image="https://res.cloudinary.com/dz8on44po/image/upload/v1650230757/R1S2/insure_zbm71t.svg"
-          name="Junior Frontend Developer"
-          company="Insure"
-          time="2w ago"
-          contract="Full Time"
-          office="USA Only"
-        >
-          <Chip name="Frontend"/>
-          <Chip name="Junior"/>
-          <Chip name="Vue"/>
-          <Chip name="JavaScript"/>
-          <Chip name="Sass"/>
-        </Card>
-
-        <Card
-          image="https://res.cloudinary.com/dz8on44po/image/upload/v1650230750/R1S2/eyecam-co_jahkna.svg"
-          name="Full Stack Developer"
-          company="Eyecam Co."
-          time="3w ago"
-          contract="Full Time"
-          office="Worldwide"
-        >
-          <Chip name="Fullstack"/>
-          <Chip name="Midweight"/>
-          <Chip name="JavaScript"/>
-          <Chip name="Django"/>
-          <Chip name="Python"/>
-        </Card>
-
-        <Card
-          image="https://res.cloudinary.com/dz8on44po/image/upload/v1650232477/R1S2/the-air-filter-company_1_efwfby.svg"
-          name="Front-end"
-          company="The Air Filter Company"
-          time="1mo ago"
-          contract="Part Time"
-          office="Worldwide"
-        >
-          <Chip name="Frontend"/>
-          <Chip name="Junior"/>
-          <Chip name="React"/>
-          <Chip name="JavaScript"/>
-          <Chip name="Sass"/>
-        </Card>
+        {!jobs
+          ? 'Cargando....'
+          : jobs.map((job, index) => {
+            return (
+              <Card
+                key={index}
+                id={job.id}
+                image={job.image}
+                name={job.position}
+                company={job.company}
+                time={job.timePublication}
+                contract={job.time}
+                office={job.location}
+                ChipFeature={
+                  job.chip.map((ch, index) => {
+                    return (
+                      <ChipFeature
+                        key={index}
+                        nameChip={ch}
+                      />
+                    )
+                  })
+                }
+              >
+                {job.technologies.map((tech, index) => {
+                  return (
+                    <Chip key={index} name={tech} />
+                  )
+                  })
+                }
+              </Card>
+            )
+          })
+        }
       </ContainerCards>
     </AppWrapper>
   )
